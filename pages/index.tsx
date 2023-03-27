@@ -1,6 +1,12 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 
+import FeatureList from "@/components/FeatureList";
+import ServiceList from "@/components/ServiceList";
+import Slider from "@/components/Slider";
+import Testimonial from "@/components/Testimonial";
+import Contact from "@/components/Contact";
+
 export default function Home() {
   return (
     <>
@@ -23,7 +29,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="/logo.jpg" rel="icon"></link>
       </Head>
-      <main></main>
+      <div>
+        <h1>Home Page</h1>
+        <Slider></Slider>
+        <FeatureList></FeatureList>
+        <ServiceList></ServiceList>
+        <Testimonial></Testimonial>
+        <Contact></Contact>
+      </div>
     </>
   );
 }
