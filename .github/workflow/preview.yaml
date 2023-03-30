@@ -6,7 +6,7 @@ on:
       - develop
     types: [opened, reopened, synchronize]
   
-  workflow_dispatch:s
+  workflow_dispatch:
 
 jobs:
   Deploy-Preview:
