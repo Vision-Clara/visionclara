@@ -1,1 +1,1 @@
-vision-clara-v.0.0.4
+vision-clara-v.0.0.5
