@@ -1,3 +1,4 @@
+import { GetStaticPaths } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -7,7 +8,7 @@ const BlogPost = () => {
 
   return (
     <>
-      <h2>BlogPost {bid}</h2>
+      <h1>{bid}</h1>
       <Link href="./">Back</Link>
     </>
   );
