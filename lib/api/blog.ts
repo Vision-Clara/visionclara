@@ -11,9 +11,9 @@ export const getAllBlogs = async () => {
 
   const collection: Collection<Blog> = client
     .db("visionclara")
-    .collection<Blog>("blogs");
+    .collection("blogs");
 
-  const blogs: Blog[] = await collection.find().toArray();
+  const retults: Blog[] = await collection.find().toArray();
 
-  return blogs;
+  return retults;
 };

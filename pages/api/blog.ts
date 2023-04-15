@@ -7,11 +7,10 @@ export default async function handler(
 ) {
   if (req.method === "GET") {
     try {
-      const blogs = await getAllBlogs();
+      const data = await getAllBlogs();
 
-      return res.status(200).json(blogs);
+      return res.status(200).json(data);
     } catch (e: any) {
-      console.log(e);
       return res.status(500).json({
         error: e.toString(),
       });
