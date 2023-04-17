@@ -1,24 +1,38 @@
+import { GetStaticProps, GetStaticPropsContext } from "next";
 import Link from "next/link";
+import type { InferGetStaticPropsType } from "next";
+import { getAllBlogs, Blog } from "@/lib/api/blog";
 
-const Blog = () => {
+const BlogList = ({
+  blogs,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <h1>Blogs Page</h1>
       <div>
         <ul>
-          <li>
-            <Link href="/blog/1">Blog Post 1</Link>
-          </li>
-          <li>
-            <Link href="/blog/2">Blog Post 2</Link>
-          </li>
-          <li>
-            <Link href="/blog/3">Blog Post 3</Link>
-          </li>
+          {blogs.map((blog) => (
+            <li key={blog._id.toString()}>
+              <Link href={`/blog/${blog._id.toString()}`}>{blog.title}</Link>
+            </li>
+          ))}
         </ul>
       </div>
     </>
   );
 };
 
-export default Blog;
+export const getStaticProps: GetStaticProps<{ blogs: Blog[] }> = async (
+  context: GetStaticPropsContext
+) => {
+  const data = await getAllBlogs();
+  const serializedData = JSON.parse(JSON.stringify(data));
+
+  return {
+    props: {
+      blogs: serializedData,
+    },
+  };
+};
+
+export default BlogList;
