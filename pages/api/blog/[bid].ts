@@ -1,6 +1,14 @@
 import { getAllBlogs, getOneBlog } from "@/lib/api/blog";
 import type { NextApiRequest, NextApiResponse } from "next";
 
+
+/**********************************************************
+ * @GET_BLOG_BY_ID
+ * @route /api/blog/[blogID]
+ * @description Fetch one blog from Database
+ * @returns Blog
+ *********************************************************/
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
